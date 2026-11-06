@@ -1,0 +1,854 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Faruk Çalışkan</title>
+<meta name="description" content="Faruk Çalışkan — yönetim, organizasyon ve insan üzerine yazılar.">
+<meta name="theme-color" content="#7b5cff">
+<meta name="author" content="Faruk Çalışkan">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Faruk Çalışkan">
+<meta property="og:description" content="Yönetim, organizasyon ve insan üzerine düşünceler.">
+<meta property="og:image" content="https://farukcaliskanstack.github.io/site-yorumlari/Unknown-12.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://farukcaliskanstack.github.io/site-yorumlari/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fff8f0;
+    --surface: #ffffff;
+    --surface-2: #fff1e4;
+    --text: #1b1530;
+    --muted: #5f5876;
+    --border: #f0dccb;
+    --accent: #ff5e5b;
+    --accent-2: #7b5cff;
+    --accent-3: #18c4a6;
+    --accent-4: #ffb830;
+    --accent-soft: #ffe4e1;
+    --grad: linear-gradient(120deg, #ff5e5b 0%, #ffb830 45%, #18c4a6 100%);
+    --grad-2: linear-gradient(135deg, #7b5cff 0%, #ff5e5b 100%);
+    --shadow: 0 14px 40px rgba(123,92,255,.16);
+    --shadow-sm: 0 6px 18px rgba(27,21,48,.08);
+    --radius: 22px;
+    --max: 1120px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0d0c14;
+      --surface: #17151f;
+      --surface-2: #1d1a28;
+      --text: #f3f0ea;
+      --muted: #a39db5;
+      --border: #2d2940;
+      --accent: #ff7a6f;
+      --accent-2: #a594ff;
+      --accent-3: #3fe0c2;
+      --accent-4: #ffc94d;
+      --accent-soft: #2a1c25;
+      --shadow: 0 18px 50px rgba(0,0,0,.45);
+      --shadow-sm: 0 6px 18px rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0d0c14;
+    --surface: #17151f;
+    --surface-2: #1d1a28;
+    --text: #f3f0ea;
+    --muted: #a39db5;
+    --border: #2d2940;
+    --accent: #ff7a6f;
+    --accent-2: #a594ff;
+    --accent-3: #3fe0c2;
+    --accent-4: #ffc94d;
+    --accent-soft: #2a1c25;
+    --shadow: 0 18px 50px rgba(0,0,0,.45);
+    --shadow-sm: 0 6px 18px rgba(0,0,0,.35);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font: 20px/1.6 "Patrick Hand", "Segoe Print", cursive, -apple-system, sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--accent-3); outline-offset: 3px; border-radius: 6px; }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+  h1, h2, h3, .hand { font-family: "Caveat", "Patrick Hand", cursive; font-weight: 700; line-height: 1.05; margin: 0; }
+  .grad-text {
+    background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 10px; font-family: "Caveat", cursive; font-size: 1.35rem;
+    color: var(--accent); font-weight: 700;
+  }
+  .eyebrow::before { content: ""; width: 34px; height: 3px; border-radius: 3px; background: var(--grad); }
+  .muted { color: var(--muted); }
+
+  /* Progress bar */
+  .progress {
+    position: fixed; top: 0; left: 0; height: 3px; width: 100%; background: var(--grad);
+    transform-origin: 0 50%; transform: scaleX(0); z-index: 50;
+  }
+
+  /* Header */
+  header.top {
+    position: sticky; top: 0; z-index: 40;
+    background: color-mix(in srgb, var(--bg) 78%, transparent);
+    backdrop-filter: saturate(1.4) blur(12px);
+    -webkit-backdrop-filter: saturate(1.4) blur(12px);
+    border-bottom: 1px solid color-mix(in srgb, var(--border) 70%, transparent);
+  }
+  header.top .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 12px; }
+  .brand {
+    font-family: "Caveat", cursive; font-size: 1.7rem; font-weight: 700; text-decoration: none;
+  }
+  nav.links { display: flex; align-items: center; gap: 4px; }
+  nav.links a {
+    text-decoration: none; color: var(--muted); padding: 8px 14px; border-radius: 999px;
+    font-size: 1.05rem; transition: color .2s, background .2s;
+  }
+  nav.links a:hover { color: var(--text); background: var(--surface); }
+  nav.links a.active { color: var(--text); background: var(--surface); box-shadow: var(--shadow-sm); }
+  .icon-btn {
+    width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--border); background: var(--surface);
+    color: var(--text); cursor: pointer; display: grid; place-items: center; font-size: 1.1rem;
+    transition: transform .2s;
+  }
+  .icon-btn:hover { transform: rotate(14deg); }
+  @media (max-width: 420px) {
+    nav.links a { padding: 8px 10px; font-size: .98rem; }
+  }
+
+  /* Hero */
+  .hero { position: relative; padding: 64px 0 80px; isolation: isolate; overflow: hidden; }
+  .hero::before, .hero::after {
+    content: ""; position: absolute; z-index: -1; border-radius: 50%; pointer-events: none; filter: blur(10px);
+  }
+  .hero::before {
+    width: 560px; height: 560px; right: -160px; top: -120px;
+    background: radial-gradient(closest-side, rgba(255,184,48,.42), transparent 72%);
+  }
+  .hero::after {
+    width: 520px; height: 520px; left: -200px; bottom: -220px;
+    background: radial-gradient(closest-side, rgba(24,196,166,.32), transparent 72%);
+  }
+  .hero-grid { display: grid; gap: 48px; align-items: center; }
+  @media (min-width: 900px) { .hero-grid { grid-template-columns: 1.15fr .85fr; } }
+  h1.name { font-size: clamp(3.4rem, 9vw, 6.4rem); letter-spacing: -.01em; margin: 14px 0 10px; }
+  .headline { font-size: clamp(1.35rem, 2.6vw, 1.7rem); color: var(--muted); margin: 0 0 14px; max-width: 30em; }
+  .lead { font-size: 1.15rem; color: var(--muted); max-width: 36em; margin: 0 0 30px; }
+  .cta { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px; text-decoration: none; cursor: pointer;
+    padding: 12px 24px; border-radius: 999px; border: 2px solid var(--text); background: transparent; color: var(--text);
+    font: 600 1.15rem "Caveat", cursive; transition: transform .25s, box-shadow .25s, background .25s, color .25s;
+  }
+  .btn.primary { background: var(--text); color: var(--bg); box-shadow: var(--shadow-sm); }
+  .btn:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+  .stats { display: flex; flex-wrap: wrap; gap: 26px; margin-top: 40px; }
+  .stat b { display: block; font-family: "Caveat", cursive; font-size: 2.4rem; line-height: 1; }
+  .stat span { color: var(--muted); font-size: 1rem; }
+
+  .portrait { position: relative; justify-self: center; width: min(100%, 440px); isolation: isolate; }
+  .portrait .frame {
+    position: relative; border-radius: 48% 52% 46% 54% / 40% 42% 58% 60%; padding: 12px;
+    background: var(--grad); animation: morph 14s ease-in-out infinite; box-shadow: var(--shadow);
+  }
+  .portrait img {
+    width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: inherit;
+    background: var(--surface); transition: transform .8s ease;
+  }
+  .portrait:hover img { transform: scale(1.04) rotate(-1deg); }
+  @keyframes morph {
+    0%, 100% { border-radius: 48% 52% 46% 54% / 40% 42% 58% 60%; }
+    50% { border-radius: 55% 45% 52% 48% / 52% 58% 42% 48%; }
+  }
+  .chip-float {
+    position: absolute; background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
+    padding: 10px 16px; box-shadow: var(--shadow); font-size: 1.05rem; white-space: nowrap;
+    animation: bob 6s ease-in-out infinite;
+  }
+  .chip-float.a { left: -10px; bottom: 36px; }
+  .chip-float.b { right: -8px; top: 26px; animation-delay: -3s; }
+  @keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+
+  /* Quote */
+  .quote-section { padding: 36px 0 96px; }
+  .quote-card {
+    display: grid; gap: 36px; align-items: center; padding: 28px; border-radius: 32px;
+    background: var(--grad-2); color: #fff; box-shadow: var(--shadow); position: relative; overflow: hidden;
+  }
+  .quote-card::after {
+    content: ""; position: absolute; width: 420px; height: 420px; right: -180px; top: -180px; border-radius: 50%;
+    background: rgba(255,255,255,.12);
+  }
+  @media (min-width: 860px) { .quote-card { grid-template-columns: .9fr 1.1fr; padding: 40px; } }
+  .quote-card img {
+    width: 100%; aspect-ratio: 1 / 1; object-fit: contain; border-radius: 24px; background: #0f0d14;
+    position: relative; z-index: 1;
+  }
+  .quote-text { position: relative; z-index: 1; }
+  .quote-mark { font-family: "Caveat", cursive; font-size: 6rem; line-height: .6; opacity: .6; display: block; }
+  .quote-text blockquote {
+    margin: 0; font-family: "Caveat", cursive; font-weight: 700; font-size: clamp(2.1rem, 4.6vw, 3.4rem); line-height: 1.12;
+  }
+  .quote-text cite { display: block; margin-top: 22px; font-style: normal; font-size: 1.3rem; opacity: .9; }
+
+  /* Sections */
+  section.block { padding: 96px 0; position: relative; }
+  .section-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 18px 30px; margin-bottom: 40px; }
+  h2.title { font-size: clamp(3rem, 6vw, 4.6rem); margin-top: 10px; }
+  .section-head p { margin: 10px 0 0; color: var(--muted); font-size: 1.15rem; max-width: 36em; }
+
+  /* Controls */
+  .toolbar { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-bottom: 28px; }
+  .search {
+    flex: 1 1 280px; position: relative;
+  }
+  .search input {
+    width: 100%; padding: 14px 20px 14px 50px; border-radius: 999px; border: 2px solid var(--border);
+    background: var(--surface); color: var(--text); font: inherit; font-size: 1.1rem; transition: border-color .2s, box-shadow .2s;
+  }
+  .search input:focus { outline: none; border-color: var(--accent-2); box-shadow: 0 0 0 5px rgba(123,92,255,.15); }
+  .search::before {
+    content: "⌕"; position: absolute; left: 18px; top: 50%; transform: translateY(-50%); font-size: 1.4rem; color: var(--muted);
+  }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip {
+    border: 2px solid var(--border); background: var(--surface); color: var(--muted); padding: 9px 18px; border-radius: 999px;
+    cursor: pointer; font: inherit; font-size: 1.05rem; transition: all .2s;
+  }
+  .chip:hover { color: var(--text); border-color: var(--accent-2); }
+  .chip[aria-pressed="true"] { background: var(--text); border-color: var(--text); color: var(--bg); }
+  .sort {
+    border: 2px solid var(--border); background: var(--surface); color: var(--text); padding: 9px 14px; border-radius: 999px;
+    font: inherit; font-size: 1.05rem; cursor: pointer;
+  }
+  .count { color: var(--muted); margin: 0 0 22px; font-size: 1.05rem; }
+
+  /* Cards */
+  .grid { display: grid; gap: 22px; grid-template-columns: 1fr; }
+  @media (min-width: 680px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1000px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+  .card {
+    position: relative; display: flex; flex-direction: column; gap: 10px; text-align: left; cursor: pointer;
+    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 26px;
+    box-shadow: var(--shadow-sm); font: inherit; color: inherit; overflow: hidden;
+    transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s, border-color .35s;
+  }
+  .card::before {
+    content: ""; position: absolute; inset: 0 0 auto 0; height: 6px; background: var(--c, var(--accent));
+  }
+  .card:hover { transform: translateY(-6px); box-shadow: var(--shadow); border-color: transparent; }
+  .card .top { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+  .tag {
+    font-family: "Caveat", cursive; font-size: 1.15rem; font-weight: 700; padding: 2px 12px; border-radius: 999px;
+    background: color-mix(in srgb, var(--c, var(--accent)) 16%, transparent); color: var(--c, var(--accent));
+  }
+  .date { color: var(--muted); font-size: .98rem; white-space: nowrap; }
+  .card h3 { font-size: 2rem; margin-top: 4px; }
+  .excerpt { color: var(--muted); margin: 0; font-size: 1.08rem; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+  .read {
+    margin-top: auto; padding-top: 8px; font-family: "Caveat", cursive; font-size: 1.3rem; font-weight: 700;
+    color: var(--c, var(--accent)); display: inline-flex; align-items: center; gap: 6px;
+  }
+  .read::after { content: "→"; transition: transform .25s; }
+  .card:hover .read::after { transform: translateX(6px); }
+  .empty { text-align: center; color: var(--muted); padding: 60px 0; font-size: 1.2rem; }
+  .more-btn { display: flex; justify-content: center; margin-top: 36px; }
+
+  /* Öne çıkanlar */
+  .featured { display: grid; gap: 22px; grid-template-columns: 1fr; margin-bottom: 52px; }
+  @media (min-width: 900px) { .featured { grid-template-columns: 1.4fr 1fr 1fr; } }
+  .featured .card h3 { font-size: 2.3rem; }
+  .featured .card:first-child h3 { font-size: 2.9rem; }
+  .featured .card .excerpt { -webkit-line-clamp: 5; }
+  .skip {
+    position: absolute; left: 12px; top: -60px; z-index: 100; background: var(--text); color: var(--bg);
+    padding: 10px 16px; border-radius: 12px; text-decoration: none; transition: top .2s;
+  }
+  .skip:focus { top: 12px; }
+
+  /* İletişim ve bülten */
+  .contact-card {
+    display: grid; gap: 28px; align-items: center; padding: 36px; border-radius: 30px;
+    background: var(--surface); border: 1px solid var(--border); box-shadow: var(--shadow);
+  }
+  @media (min-width: 860px) { .contact-card { grid-template-columns: 1fr 1fr; padding: 48px; } }
+  .contact-card h2 { font-size: clamp(2.4rem, 4.5vw, 3.4rem); margin: 10px 0 8px; }
+  .social { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 28px; }
+  .social a {
+    text-decoration: none; padding: 10px 20px; border-radius: 999px; border: 2px solid var(--border);
+    background: var(--surface); color: var(--text); font: 600 1.1rem "Caveat", cursive;
+  }
+  .social a:hover { border-color: var(--accent-2); color: var(--accent-2); }
+  .footer-links { display: flex; gap: 18px; flex-wrap: wrap; }
+  .contact-actions { display: flex; justify-content: center; }
+  .giscus-wrap { margin-top: 26px; border-top: 1px solid var(--border); padding-top: 20px; }
+  .giscus-wrap[hidden] { display: none; }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+  /* Dialog */
+  dialog.post {
+    width: min(760px, calc(100% - 32px)); max-height: calc(100vh - 48px); padding: 0; border: 0; border-radius: 28px;
+    background: var(--surface); color: var(--text); box-shadow: 0 30px 80px rgba(0,0,0,.35);
+  }
+  dialog.post::backdrop { background: rgba(13,12,20,.6); backdrop-filter: blur(4px); }
+  dialog.post[open] { animation: pop .35s cubic-bezier(.2,.8,.2,1); }
+  @keyframes pop { from { opacity: 0; transform: translateY(16px) scale(.98); } to { opacity: 1; transform: none; } }
+  .dlg-head { position: sticky; top: 0; z-index: 2; background: var(--surface); padding: 22px 28px 14px; border-bottom: 1px solid var(--border); }
+  .dlg-head .row { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+  .dlg-head h2 { font-size: 2.6rem; margin-top: 10px; }
+  .dlg-body { padding: 24px 28px 34px; overflow: auto; max-height: calc(100vh - 170px); }
+  .dlg-body p { margin: 0 0 16px; font-size: 1.2rem; line-height: 1.65; white-space: pre-line; }
+  .dlg-actions { display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap; }
+  .dlg-body .none { color: var(--muted); font-style: italic; }
+
+  /* About */
+  .about { display: grid; gap: 48px; align-items: center; }
+  @media (min-width: 900px) { .about { grid-template-columns: .9fr 1.1fr; } }
+  .about .frame-sm {
+    border-radius: 36px; overflow: hidden; box-shadow: var(--shadow); position: relative;
+    background: var(--grad);
+    padding: 10px;
+  }
+  .about .frame-sm img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 28px; }
+  .about h2 { font-size: clamp(3rem, 6vw, 4.6rem); margin-top: 10px; }
+  .about p.lead-text { font-size: 1.3rem; line-height: 1.6; color: var(--muted); margin: 18px 0 0; }
+  .pillars { display: grid; gap: 14px; grid-template-columns: 1fr; margin-top: 30px; }
+  @media (min-width: 560px) { .pillars { grid-template-columns: repeat(3, 1fr); } }
+  .pillar {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 18px 20px; box-shadow: var(--shadow-sm);
+  }
+  .pillar b { display: block; font-family: "Caveat", cursive; font-size: 1.7rem; color: var(--accent-2); }
+  .pillar span { color: var(--muted); font-size: 1rem; }
+
+  /* Footer */
+  footer { padding: 56px 0 64px; border-top: 1px solid var(--border); margin-top: 40px; }
+  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 22px; }
+  footer .sign { font-family: "Caveat", cursive; font-size: 2.4rem; font-weight: 700; }
+  footer .small { color: var(--muted); font-size: 1rem; }
+  .to-top {
+    position: fixed; right: 22px; bottom: 22px; width: 52px; height: 52px; border-radius: 50%; border: 0; cursor: pointer;
+    background: var(--grad); color: #fff; font-size: 1.4rem; box-shadow: var(--shadow); z-index: 30;
+    opacity: 0; transform: translateY(14px); pointer-events: none; transition: all .3s;
+  }
+  .to-top.show { opacity: 1; transform: none; pointer-events: auto; }
+  .toast {
+    position: fixed; left: 50%; bottom: 26px; transform: translateX(-50%) translateY(20px); z-index: 60;
+    background: var(--text); color: var(--bg); padding: 10px 20px; border-radius: 999px; font-size: 1.05rem;
+    opacity: 0; transition: all .3s; pointer-events: none;
+  }
+  .toast.show { opacity: 1; transform: translateX(-50%); }
+
+  /* Reveal */
+  .reveal { opacity: 0; transform: translateY(26px); transition: opacity .9s cubic-bezier(.2,.8,.2,1), transform .9s cubic-bezier(.2,.8,.2,1); }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+    .reveal { opacity: 1; transform: none; }
+  }
+  @media (max-width: 640px) {
+    body { font-size: 19px; }
+    .hero { padding-top: 40px; }
+    .chip-float.a { left: 0; } .chip-float.b { right: 0; }
+    section.block { padding: 72px 0; }
+  }
+</style>
+</head>
+<body>
+
+<a class="skip" href="#yazilar">İçeriğe geç</a>
+<div class="progress" id="progress"></div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand grad-text" href="#top" id="brand">Faruk Çalışkan</a>
+    <nav class="links" aria-label="Ana menü">
+      <a href="#yazilar" data-nav="yazilar">Yazılar</a>
+      <a href="#hakkimda" data-nav="hakkimda">Hakkımda</a>
+      <a href="#iletisim" data-nav="iletisim">İletişim</a>
+      <button class="icon-btn" id="themeBtn" type="button" aria-label="Temayı değiştir">◐</button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="reveal">
+        <span class="eyebrow">Hoş geldiniz</span>
+        <h1 class="name grad-text" id="name">Faruk Çalışkan</h1>
+        <p class="headline" id="headline"></p>
+        <p class="lead" id="heroLead"></p>
+        <div class="cta">
+          <a class="btn primary" href="#yazilar">Yazıları oku ↓</a>
+          <a class="btn" href="#hakkimda">Hakkımda</a>
+        </div>
+        <div class="stats" aria-label="Özet">
+          <div class="stat"><b id="statCount">0</b><span>yazı</span></div>
+          <div class="stat"><b id="statYears">—</b><span>son yazı</span></div>
+        </div>
+      </div>
+      <div class="portrait reveal">
+        <div class="frame"><img id="profileImg" alt="Faruk Çalışkan portresi"></div>
+        <div class="chip-float a">Yönetim ✦ Organizasyon</div>
+        <div class="chip-float b">İnsan ✦ Düşünce</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="quote-section">
+    <div class="wrap">
+      <div class="quote-card reveal">
+        <img id="heroImg" alt="Gözleri bağlı, başında kuşlar olan portre">
+        <div class="quote-text">
+          <span class="quote-mark">“</span>
+          <blockquote id="quoteText"></blockquote>
+          <cite id="quoteCite"></cite>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="yazilar">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <span class="eyebrow">Yazılar</span>
+          <h2 class="title grad-text">Düşünceler</h2>
+          <p>Gözlemler, tecrübeler ve kısa notlar. Bir yazıya tıklayarak tamamını okuyabilirsiniz.</p>
+        </div>
+      </div>
+
+      <div class="featured reveal" id="featured" aria-label="Öne çıkan yazılar"></div>
+
+      <div class="toolbar reveal">
+        <label class="search">
+          <span class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Yazılarda ara</span>
+          <input type="search" id="search" placeholder="Bir kelime ya da konu arayın…" autocomplete="off">
+        </label>
+        <select class="sort" id="sort" aria-label="Sırala">
+          <option value="new">En yeni</option>
+          <option value="old">En eski</option>
+        </select>
+      </div>
+      <p class="count" id="count" aria-live="polite"></p>
+
+      <div class="grid" id="grid"></div>
+      <p class="empty" id="empty" hidden>Aramanızla eşleşen yazı bulunamadı.</p>
+      <div class="more-btn" id="moreWrap" hidden>
+        <button class="btn" id="moreBtn" type="button">Daha fazla yazı göster</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="hakkimda" style="padding-top:0">
+    <div class="wrap about">
+      <div class="reveal">
+        <div class="frame-sm"><img id="featureImg" alt="Faruk Çalışkan çizim portresi"></div>
+      </div>
+      <div class="reveal">
+        <span class="eyebrow">Hakkımda</span>
+        <h2 class="grad-text" id="aboutTitle">Faruk Çalışkan</h2>
+        <p class="lead-text" id="aboutText"></p>
+        <div class="pillars">
+          <div class="pillar"><b>İnsan</b><span>Sürecin merkezindeki kişi</span></div>
+          <div class="pillar"><b>Süreç</b><span>Görünmeyen akışlar ve engeller</span></div>
+          <div class="pillar"><b>Öngörü</b><span>Bugünden yarını okumak</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<section class="block" id="iletisim" style="padding-top:0">
+  <div class="wrap">
+    <div class="contact-card reveal">
+      <div>
+        <span class="eyebrow">İletişim</span>
+        <h2 class="title grad-text">Bana ulaşın</h2>
+        <p class="lead-text">Bir yazı hakkında düşüncenizi ya da bir öneriyi doğrudan e-postayla iletebilirsiniz.</p>
+      </div>
+      <div class="contact-actions">
+        <a class="btn primary" id="mailBtn" href="#">E-posta gönder</a>
+      </div>
+    </div>
+    <div class="social" aria-label="Sosyal medya">
+      <a href="#" id="linkX" rel="noopener" target="_blank">X</a>
+      <a href="#" id="linkInstagram" rel="noopener" target="_blank">Instagram</a>
+      <a href="#" id="linkYouTube" rel="noopener" target="_blank">YouTube</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="sign grad-text" id="footerSign">Faruk Çalışkan</div>
+      <div class="small" id="footerLine"></div>
+    </div>
+    <div class="small footer-links">
+      <a href="#iletisim">İletişim</a>
+      <a href="gizlilik.html">Gizlilik ve çerezler</a>
+      <a href="#top">Başa dön ↑</a>
+    </div>
+  </div>
+</footer>
+
+<dialog class="post" id="postDlg" aria-labelledby="dlgTitle">
+  <div class="dlg-head">
+    <div class="row">
+      <span class="tag" id="dlgKind"></span>
+      <button class="icon-btn" id="dlgClose" type="button" aria-label="Kapat">✕</button>
+    </div>
+    <h2 id="dlgTitle"></h2>
+  </div>
+  <div class="dlg-body">
+    <div id="dlgBody"></div>
+    <div class="dlg-actions">
+      <button class="btn" id="dlgCopy" type="button">Metni kopyala</button>
+      <a class="btn" id="shareX" href="#" target="_blank" rel="noopener">X'te paylaş</a>
+      <a class="btn" id="shareWa" href="#" target="_blank" rel="noopener">WhatsApp'ta paylaş</a>
+    </div>
+    <div class="giscus-wrap" id="giscusWrap" hidden>
+      <h3 class="hand" style="font-family:'Caveat',cursive;font-size:2rem;margin:0 0 10px">Yorumlar</h3>
+      <div class="giscus"></div>
+    </div>
+  </div>
+</dialog>
+
+<button class="to-top" id="toTop" type="button" aria-label="Başa dön">↑</button>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="content.js?v=4"></script>
+<script src="posts-data.js?v=4"></script>
+<script>
+(function () {
+  var S = window.SITE || {};
+  var P = (window.POSTS || []).slice();
+  var $ = function (id) { return document.getElementById(id); };
+  var PAGE = 9;
+  var shown = PAGE;
+  var filter = "all", query = "", sort = "new";
+
+  var COLORS = ["#ff5e5b", "#7b5cff", "#18c4a6", "#ffb830"];
+
+  // İçerik
+  function setText(id, t) { var el = $(id); if (el) el.textContent = t || ""; }
+  setText("name", S.name);
+  setText("headline", S.headline);
+  setText("heroLead", S.about);
+  setText("quoteText", S.quote ? "“" + S.quote + "”" : "");
+  setText("quoteCite", S.name ? "— " + S.name : "");
+  setText("aboutTitle", S.name);
+  setText("aboutText", S.about);
+  setText("footerSign", S.name);
+  setText("brand", S.name);
+  setText("footerLine", "© " + new Date().getFullYear() + " " + (S.name || "") + " · Tüm hakları saklıdır");
+  setText("statCount", String(P.length));
+  if (S.images) {
+    if (S.images.profile) $("profileImg").src = S.images.profile;
+    if (S.images.hero) $("heroImg").src = S.images.hero;
+    if (S.images.feature) $("featureImg").src = S.images.feature;
+  }
+  document.title = S.name || "Faruk Çalışkan";
+
+  // Tarihler
+  function parseDate(p) { return p.approxDate || ""; }
+  var dates = P.map(parseDate).filter(Boolean).sort();
+  if (dates.length) {
+    var y = dates[dates.length - 1].slice(0, 4);
+    setText("statYears", y);
+  }
+  function fmtDate(p) {
+    var d = parseDate(p);
+    if (!d) return p.when || "";
+    var parts = d.split("-");
+    var months = ["Oca","Şub","Mar","Nis","May","Haz","Tem","Ağu","Eyl","Eki","Kas","Ara"];
+    var m = parseInt(parts[1], 10) - 1;
+    return (parts[2] ? parseInt(parts[2], 10) + " " : "") + (months[m] || "") + " " + parts[0];
+  }
+
+  // Yazılar
+  function excerpt(t) {
+    t = (t || "").replace(/\s+/g, " ").trim();
+    return t.length > 170 ? t.slice(0, 170).replace(/\s+\S*$/, "") + "…" : t;
+  }
+
+  function filtered() {
+    var q = query.toLowerCase();
+    var list = P.filter(function (p) {
+      var okKind = filter === "all" || p.kind === filter;
+      var hay = ((p.title || "") + " " + (p.body || "")).toLowerCase();
+      return okKind && (!q || hay.indexOf(q) !== -1);
+    });
+    list.sort(function (a, b) {
+      var da = parseDate(a), db = parseDate(b);
+      return sort === "new" ? (da < db ? 1 : da > db ? -1 : 0) : (da > db ? 1 : da < db ? -1 : 0);
+    });
+    return list;
+  }
+
+  function render() {
+    var list = filtered();
+    var grid = $("grid");
+    grid.innerHTML = "";
+    list.slice(0, shown).forEach(function (p, i) {
+      var c = COLORS[i % COLORS.length];
+      var card = document.createElement("button");
+      card.type = "button";
+      card.className = "card reveal";
+      card.style.setProperty("--c", c);
+      card.setAttribute("aria-label", (p.title || "Başlıksız") + " yazısını aç");
+
+      var top = document.createElement("div");
+      top.className = "top";
+      var tag = document.createElement("span");
+      tag.className = "tag";
+      tag.textContent = "Yazı";
+      var date = document.createElement("span");
+      date.className = "date";
+      date.textContent = fmtDate(p);
+      top.appendChild(tag); top.appendChild(date);
+
+      var h = document.createElement("h3");
+      h.textContent = p.title || "Başlıksız";
+
+      var ex = document.createElement("p");
+      ex.className = "excerpt";
+      ex.textContent = excerpt(p.body);
+
+      var read = document.createElement("span");
+      read.className = "read";
+      read.textContent = p.body ? "Oku" : "Görüntüle";
+
+      card.appendChild(top); card.appendChild(h); card.appendChild(ex); card.appendChild(read);
+      card.addEventListener("click", function () { openPost(p); });
+      grid.appendChild(card);
+      requestAnimationFrame(function () { observeReveal(card); });
+    });
+    $("count").textContent = list.length + " yazı" + (list.length > shown ? " · " + shown + " tanesi gösteriliyor" : "");
+    $("empty").hidden = list.length !== 0;
+    $("moreWrap").hidden = list.length <= shown;
+  }
+
+  // Dialog
+  var dlg = $("postDlg");
+  var current = null;
+  function openPost(p) {
+    current = p;
+    var pageUrl = encodeURIComponent(location.href.split("#")[0]);
+    var shareText = encodeURIComponent((p.title || "") + " — " + S.name);
+    $("shareX").href = "https://twitter.com/intent/tweet?url=" + pageUrl + "&text=" + shareText;
+    $("shareWa").href = "https://wa.me/?text=" + shareText + "%20" + pageUrl;
+    $("dlgKind").textContent = fmtDate(p);
+    $("dlgTitle").textContent = p.title || "Başlıksız";
+    var body = $("dlgBody");
+    body.innerHTML = "";
+    if (p.body) {
+      p.body.split(/\n{2,}/).forEach(function (para) {
+        var el = document.createElement("p");
+        el.textContent = para;
+        body.appendChild(el);
+      });
+    } else {
+      var n = document.createElement("p");
+      n.className = "none";
+      n.textContent = "Bu yazı yalnızca başlıktan oluşuyor.";
+      body.appendChild(n);
+    }
+    if (typeof dlg.showModal === "function") dlg.showModal(); else dlg.setAttribute("open", "");
+    loadGiscus(p);
+  }
+  $("dlgClose").addEventListener("click", function () { dlg.close(); });
+  dlg.addEventListener("click", function (e) { if (e.target === dlg) dlg.close(); });
+  $("dlgCopy").addEventListener("click", function () {
+    var text = (current.title || "") + "\n\n" + (current.body || "");
+    toast("Metin kopyalandı");
+    try { navigator.clipboard.writeText(text.trim()); } catch (e) {}
+  });
+
+  // Toast
+  var tt;
+  function toast(msg) {
+    var t = $("toast");
+    t.textContent = msg;
+    t.classList.add("show");
+    clearTimeout(tt);
+    tt = setTimeout(function () { t.classList.remove("show"); }, 1800);
+  }
+
+  // Filtreler / arama / sıralama
+  $("search").addEventListener("input", function (e) { query = e.target.value.trim(); shown = PAGE; render(); });
+  document.querySelectorAll(".chip").forEach(function (chip) {
+    chip.addEventListener("click", function () {
+      filter = chip.getAttribute("data-filter");
+      document.querySelectorAll(".chip").forEach(function (c) { c.setAttribute("aria-pressed", c === chip ? "true" : "false"); });
+      shown = PAGE; render();
+    });
+  });
+  $("sort").addEventListener("change", function (e) { sort = e.target.value; render(); });
+  $("moreBtn").addEventListener("click", function () { shown += PAGE; render(); });
+
+  // Tema
+  var root = document.documentElement;
+  try { var saved = localStorage.getItem("theme"); if (saved) root.setAttribute("data-theme", saved); } catch (e) {}
+  $("themeBtn").addEventListener("click", function () {
+    var dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    var cur = root.getAttribute("data-theme") || (dark ? "dark" : "light");
+    var next = cur === "dark" ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    try { localStorage.setItem("theme", next); } catch (e) {}
+  });
+
+  // İlerleme çubuğu ve üste dön
+  var prog = $("progress"), toTop = $("toTop");
+  function onScroll() {
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    var ratio = max > 0 ? h.scrollTop / max : 0;
+    prog.style.transform = "scaleX(" + ratio + ")";
+    toTop.classList.toggle("show", h.scrollTop > 600);
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+  toTop.addEventListener("click", function () { window.scrollTo({ top: 0, behavior: "smooth" }); });
+
+  // Aktif menü
+  var navLinks = document.querySelectorAll("nav.links a[data-nav]");
+  if ("IntersectionObserver" in window) {
+    var secIo = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) {
+          navLinks.forEach(function (a) { a.classList.toggle("active", a.getAttribute("data-nav") === en.target.id); });
+        }
+      });
+    }, { rootMargin: "-45% 0px -50% 0px" });
+    ["yazilar", "hakkimda"].forEach(function (id) { var s = $(id); if (s) secIo.observe(s); });
+  }
+
+  // Giriş animasyonları
+  var revealIo = null;
+  if ("IntersectionObserver" in window) {
+    revealIo = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); revealIo.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+  }
+  function observeReveal(el) {
+    if (revealIo) revealIo.observe(el); else el.classList.add("in");
+  }
+  document.querySelectorAll(".reveal").forEach(observeReveal);
+
+  // Öne çıkan yazılar: en çok okunan 3 yazı
+  (function renderFeatured() {
+    var box = $("featured");
+    if (!box) return;
+    var top = P.filter(function (p) { return p.body; })
+      .sort(function (a, b) { return (b.views || 0) - (a.views || 0); })
+      .slice(0, 3);
+    top.forEach(function (p, i) {
+      var c = COLORS[i % COLORS.length];
+      var card = document.createElement("button");
+      card.type = "button";
+      card.className = "card";
+      card.style.setProperty("--c", c);
+      var top1 = document.createElement("div");
+      top1.className = "top";
+      var tag = document.createElement("span");
+      tag.className = "tag";
+      tag.textContent = i === 0 ? "En çok okunan" : "Öne çıkan";
+      var date = document.createElement("span");
+      date.className = "date";
+      date.textContent = fmtDate(p);
+      top1.appendChild(tag); top1.appendChild(date);
+      var h = document.createElement("h3");
+      h.textContent = p.title || "Başlıksız";
+      var ex = document.createElement("p");
+      ex.className = "excerpt";
+      ex.textContent = excerpt(p.body);
+      var read = document.createElement("span");
+      read.className = "read";
+      read.textContent = "Oku";
+      card.appendChild(top1); card.appendChild(h); card.appendChild(ex); card.appendChild(read);
+      card.addEventListener("click", function () { openPost(p); });
+      box.appendChild(card);
+    });
+    if (!top.length) box.hidden = true;
+  })();
+
+  // Ziyaretçi analitiği (GoatCounter): kod girilmezse hiçbir şey yüklenmez
+  (function setupAnalytics() {
+    var code = (S.goatcounterCode || "").trim();
+    if (!code || !/^[a-z0-9-]+$/i.test(code)) return;
+    try {
+      var s = document.createElement("script");
+      s.async = true;
+      s.src = "https://gc.zgo.at/count.js";
+      s.setAttribute("data-goatcounter", "https://" + code + ".goatcounter.com/count");
+      document.head.appendChild(s);
+    } catch (e) {}
+  })();
+
+  // Giscus yorumları: yalnızca ayarlar doldurulduğunda yüklenir
+  function loadGiscus(p) {
+    var g = S.giscus || {};
+    var wrap = $("giscusWrap");
+    if (!g.repo || !g.repoId || !g.categoryId) { wrap.hidden = true; return; }
+    wrap.hidden = false;
+    var box = wrap.querySelector(".giscus");
+    box.innerHTML = "";
+    var s = document.createElement("script");
+    s.src = "https://giscus.app/client.js";
+    s.async = true;
+    s.setAttribute("data-repo", g.repo);
+    s.setAttribute("data-repo-id", g.repoId);
+    s.setAttribute("data-category", g.category || "");
+    s.setAttribute("data-category-id", g.categoryId);
+    s.setAttribute("data-mapping", "specific");
+    s.setAttribute("data-term", p.title || "yazi");
+    s.setAttribute("data-strict", "1");
+    s.setAttribute("data-reactions-enabled", "1");
+    s.setAttribute("data-emit-metadata", "0");
+    s.setAttribute("data-input-position", "top");
+    s.setAttribute("data-theme", document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "preferred_color_scheme");
+    s.setAttribute("data-lang", "tr");
+    s.setAttribute("crossorigin", "anonymous");
+    box.appendChild(s);
+  }
+
+  // İletişim: e-posta bağlantısı ve sosyal bağlantılar
+  (function setupContact() {
+    var soc = S.social || {};
+    var map = { linkX: soc.x, linkInstagram: soc.instagram, linkYouTube: soc.youtube };
+    Object.keys(map).forEach(function (id) {
+      var el = $(id);
+      if (!el) return;
+      if (map[id]) el.href = map[id]; else el.hidden = true;
+    });
+    var mailBtn = $("mailBtn");
+    if (S.email) {
+      // Adres düz metin olarak değil, sayfa yüklendikten sonra birleştirilerek yazılır
+      var user = S.email.split("@")[0], host = S.email.split("@")[1];
+      mailBtn.href = "mailto:" + user + "@" + host;
+    } else {
+      mailBtn.hidden = true;
+    }
+  })();
+
+  render();
+})();
+</script>
+</body>
+</html>
